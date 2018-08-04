@@ -15,8 +15,6 @@ function read_dict(filename){
 	return list
 }
 
-
-
 function return_dict(input,out){
 	list = read_dict("sowpods.txt")
 
@@ -25,4 +23,8 @@ function return_dict(input,out){
 	return create_dict(list,input,out);
 }
 
-console.log(return_dict("clay","gold"));
+module.exports = {
+	return_dict: return_dict
+};
+
+//console.log(return_dict("clay","gold"));
