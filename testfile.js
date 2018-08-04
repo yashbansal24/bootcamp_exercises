@@ -9,7 +9,7 @@ function test(){
 	]
 	n = cases.length
 	for(var i=0;i<n;i++)
-		mainModule.find_path(cases[i].input,cases[i].output)
+		mainModule.find_path(cases[i].input,cases[i].out)
 }
 
 test();
