@@ -88,7 +88,7 @@ function find_all_that_satisfy(dict, word_obj){
         for(let j=0;j<word_obj.length;j++)
         {
             if(word_obj[j].pos!=-1) {
-                if ((key[word_obj[j].pos] != key[j] || key.length != word_obj.length)) {
+                if ((key[word_obj[j].pos-1] != key[j] || key.length != word_obj.length)) {
                     isMatch = false;
                 }
             }
@@ -101,12 +101,12 @@ function find_all_that_satisfy(dict, word_obj){
             possible_words.push(key);
 
     }
-    console.log(possible_words);
+    //console.log(possible_words);
     return possible_words;
 }
 
-var dict = return_dict();
-find_all_that_satisfy(dict,[{letter:"C",pos:-1},{letter:"A",pos:1},{letter:"M",pos:-1},{letter:"P",pos:-1}]);
+// var dict = return_dict();
+// find_all_that_satisfy(dict,[{letter:"C",pos:-1},{letter:"A",pos:1},{letter:"M",pos:-1},{letter:"P",pos:-1}]);
 module.exports = {
     return_dict: return_dict,
     check_if_present: check_if_present,
