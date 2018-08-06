@@ -1,15 +1,19 @@
+const wordScore = require('./scorecalc');
 
 function getMaxScoreWord(legalWords) {
     let maxWord = {'word':'','score':-1};
     for (let word of legalWords){
-        if (word.score > maxWord.score){
-            maxWord = word;
+        let calcWord = wordScore.wordscore(word);
+
+        if ( calcWord.score > maxWord.score){
+            maxWord.word=word;
+            maxWord.score = calcWord.score;
         }
     }
     return maxWord;
 }
 
-console.log(getMaxScoreWord([{'word':'sdgreg','score':34},{'word':'sdg3dd','score':21},{'word':'frref','score':929},{'word':'sdgh234','score':3}]));
+console.log(getMaxScoreWord(["ergre","sfsffes","efeff"]));
 
 module.exports = {
     getMaxScoreWord : getMaxScoreWord
