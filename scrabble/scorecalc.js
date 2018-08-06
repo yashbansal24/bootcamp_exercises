@@ -23,7 +23,7 @@ function wordscore(word,rack){
     }
     return {"word":word,"score":score};
 }
-//console.log(wordscore("ASS",[{'letter':'A'},{'letter':'E'},{'letter':'D'},{'letter':'-'}]));
+//console.log(wordscore("WELCOME",[{'letter':'W'},{'letter':'-'},{'letter':'L'},{'letter':'C'},{'letter':'O'},{'letter':'M'},{'letter':'E'}]));
 module.exports={
 	wordscore:wordscore
 };
