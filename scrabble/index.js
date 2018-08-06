@@ -8,7 +8,7 @@ function getHighestWord(rack) {
   let legalWords = [];
   let dict = dictmodule.return_dict();
   for(let word of possibleWords) {
-    if(dictmodule.check_if_present(dict,word)) {
+    if(dictmodule.check_if_present(dict,word) === true) {
       legalWords.push(word);
     }
   }
@@ -17,7 +17,7 @@ function getHighestWord(rack) {
 }
 
 function main() {
-  console.log('yes');
+  console.log(getHighestWord('lewmoce'));
 }
 
 main();
