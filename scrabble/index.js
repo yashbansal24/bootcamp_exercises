@@ -8,7 +8,8 @@ const dict = dictmodule.return_dict();
 function passesConstraints(word,rackConstraints) {
   for(let constraint of rackConstraints) {
     if(constraint.second) {
-      //console.log(constraint);
+      if(word.indexOf(constraint.second) < 0 || word.indexOf(constraint.first) < 0)
+        return false;
       if(word.indexOf(constraint.second) - word.indexOf(constraint.first) !== constraint.diff)
         return false;
     }
