@@ -84,26 +84,29 @@ function find_all_that_satisfy(dict, word_obj){
     let l = 0;
     for (let key in dict) {
 
-        // isMatch = true;
+        isMatch = true;
+        for(let j=0;j<word_obj.length;j++)
+        {
+            if(word_obj[j].pos!=-1) {
+                if ((key[word_obj[j].pos] != key[j] || key.length != word_obj.length)) {
+                    isMatch = false;
+                }
+            }
+
+        }
+
+        if(isMatch===false)continue;
+
         if(key.length<=word.length && count_match(key,word)==true)
             possible_words.push(key);
-        // for(let j=0;j<word_obj.length;j++)
-        // {
-        //     if(word_obj[j].fixed == "Y" && word_obj[j].letter != key[j]) {
-        //         isMatch = false;
-        //     }
-        // }
-        //
-        // if(isMatch){
-        //     count_match()
-        // }
+
     }
-    // console.log(possible_words);
+    console.log(possible_words);
     return possible_words;
 }
 
-// var dict = return_dict();
-// find_all_that_satisfy(dict,[{letter:"C",fixed:"N"},{letter:"M",fixed:"Y"},{letter:"A",fixed:"N"},{letter:"P",fixed:"N"}]);
+var dict = return_dict();
+find_all_that_satisfy(dict,[{letter:"C",pos:-1},{letter:"A",pos:1},{letter:"M",pos:-1},{letter:"P",pos:-1}]);
 module.exports = {
     return_dict: return_dict,
     check_if_present: check_if_present,
