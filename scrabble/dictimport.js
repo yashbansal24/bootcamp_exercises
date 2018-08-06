@@ -5,7 +5,7 @@ function read_word(filename){
     return list;
 }
 
-function list_of_letters(){
+function return_word(){
     let list = read_word("word.txt")
     return list[0];
 }
@@ -43,7 +43,7 @@ function check_if_present(dict,word)
 module.exports = {
     return_dict: return_dict,
     check_if_present: check_if_present,
-    list_of_letters: list_of_letters
+    return_word: return_word
 };
 
 //console.log(return_dict("clay","gold"));
