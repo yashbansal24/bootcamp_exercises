@@ -10,11 +10,10 @@ function return_word(){
     return list[0];
 }
 
-function create_dict(list,input,out)
+function create_dict(list,)
 {
     let map={};
     for(var i=0;i<list.length;i++){
-        if(list[i].length==input.length)
             map[list[i]]=1;
     }
     return map;
@@ -27,12 +26,10 @@ function read_dict(filename){
     return list
 }
 
-function return_dict(input,out){
+function return_dict(){
     list = read_dict("sowpods.txt")
 
-    if(input.length != out.length)
-        console.log("invalid")
-    return create_dict(list,input,out);
+    return create_dict(list);
 }
 
 function check_if_present(dict,word)
