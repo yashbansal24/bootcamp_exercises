@@ -44,4 +44,4 @@ module.exports = {
   genPossibleWordsFromRack: genPossibleWordsFromRack
 };
 
-console.log(genPossibleWordsFromRack('yes'));
+//console.log(genPossibleWordsFromRack('yes'));
