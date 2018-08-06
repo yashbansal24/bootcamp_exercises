@@ -13,8 +13,6 @@ function getMaxScoreWord(legalWords) {
     return maxWord;
 }
 
-console.log(getMaxScoreWord(["ergre","sfsffes","efeff"]));
-
 module.exports = {
     getMaxScoreWord : getMaxScoreWord
 };
