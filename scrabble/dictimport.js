@@ -98,12 +98,12 @@ function find_all_that_satisfy(dict, word_obj){
         //     count_match()
         // }
     }
-    console.log(possible_words);
+    // console.log(possible_words);
     return possible_words;
 }
 
-var dict = return_dict();
-find_all_that_satisfy(dict,[{letter:"C",fixed:"N"},{letter:"M",fixed:"Y"},{letter:"A",fixed:"N"},{letter:"P",fixed:"N"}]);
+// var dict = return_dict();
+// find_all_that_satisfy(dict,[{letter:"C",fixed:"N"},{letter:"M",fixed:"Y"},{letter:"A",fixed:"N"},{letter:"P",fixed:"N"}]);
 module.exports = {
     return_dict: return_dict,
     check_if_present: check_if_present,
