@@ -10,7 +10,7 @@ function return_word(){
     return list[0];
 }
 
-function create_dict(list,)
+function create_dict(list)
 {
     let map={};
     for(var i=0;i<list.length;i++){
@@ -34,7 +34,7 @@ function return_dict(){
 
 function check_if_present(dict,word)
 {
-    return dict[word]>0
+    return dict[word.toUpperCase()]>0;
 }
 
 module.exports = {
