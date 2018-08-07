@@ -33,11 +33,17 @@ function setWon(gA,gB) {
 }
 
 function printBoard() {
-  console.log("player:\t","A","B");
-  console.log("sets:\t",this.sA,this.sB);
-  console.log("games:\t",this.gA,this.gB);
-  console.log("points:\t",pointsToScore(this.pA),pointsToScore(this.pB));
-  console.log(state(this.pA,this.pB).state);
+  console.log(this.genBoard());
+}
+
+function genBoard() {
+  let str = "";
+  str += "player:\tA B\n";
+  str += "sets:\t"+this.sA+" "+this.sB+"\n";
+  str += "games:\t"+this.gA+" "+this.gB+"\n";
+  str += "points:\t"+this.pA+" "+this.pB+"\n";
+  str += state(this.pA,this.pB).state+"\n";
+  return str;
 }
 
 function applyNext(c) {
@@ -70,6 +76,7 @@ class Tennis {
     this.sA = this.sB = 0;
 
     this.printBoard = printBoard;
+    this.genBoard = genBoard;
     this.next = applyNext;
   }
 }
