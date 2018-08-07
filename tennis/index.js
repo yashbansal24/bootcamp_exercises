@@ -32,44 +32,55 @@ function setWon(gA,gB) {
   return false;
 }
 
-function printBoard(pA,pB,gA,gB,sA,sB) {
+function printBoard() {
   console.log("player:\t","A","B");
-  console.log("sets:\t",sA,sB);
-  console.log("games:\t",gA,gB);
-  console.log("points:\t",pointsToScore(pA),pointsToScore(pB));
-  console.log(state(pA,pB).state);
+  console.log("sets:\t",this.sA,this.sB);
+  console.log("games:\t",this.gA,this.gB);
+  console.log("points:\t",pointsToScore(this.pA),pointsToScore(this.pB));
+  console.log(state(this.pA,this.pB).state);
 }
 
-function tennisGame(str) {
-  let pA=0,pB=0,gA=0,gB=0,sA=0,sB=0;
-  let n = str.length;
-  for(let i=0;i<n;i++) {
-    if(str[i] === 'A') pA+=1;
-    else pB+=1;
+function applyNext(c) {
+  if(c === 'A') this.pA+=1;
+  else this.pB+=1;
 
-    let st = state(pA,pB);
+  let st = state(this.pA,this.pB);
 
-    if(st.state === "DEUCE") {
-      pA = pB=3;
-    }
-
-    if(st.state == "WIN") {
-      if(st.player=='A') gA++;
-      else gB++;
-      pA=pB=0;
-    }
-
-    if(setWon(gA,gB)) {
-      if(setWon(gA,gB) === 'A') sA++;
-      else sB++;
-      gA = gB = 0;
-    }
+  if(st.state === "DEUCE") {
+    this.pA = this.pB = 3;
   }
-  printBoard(pA,pB,gA,gB,sA,sB);
+
+  if(st.state === "WIN") {
+    if(st.player=='A') this.gA++;
+    else this.gB++;
+    this.pA = this.pB = 0;
+  }
+
+  if(setWon(this.gA,this.gB)) {
+    if(setWon(this.gA,this.gB) === 'A') this.sA++;
+    else this.sB++;
+    this.gA = this.gB = 0;
+  }
+}
+
+class Tennis {
+  constructor() {
+    this.pA = this.pB = 0;
+    this.gA = this.gB = 0;
+    this.sA = this.sB = 0;
+
+    this.printBoard = printBoard;
+    this.next = applyNext;
+  }
 }
 
 function main(str) {
-  tennisGame(str);
+  let tennisG = new Tennis();
+  for(let c of str) {
+    tennisG.next(c);
+  }
+  tennisG.printBoard();
+  //tennisGame(str);
 }
 
 main("ABABABAA");
