@@ -109,7 +109,8 @@ class Polynomial {
 }
 
 //Format
-console.log(parseToPolyRep("3x+5-12x^5"));
+let str = "3x+5-12x^5";
+console.log("Representation:",str,":",parseToPolyRep(str));
 
 //add
 p = new Polynomial("-5x^2+7x+12");
