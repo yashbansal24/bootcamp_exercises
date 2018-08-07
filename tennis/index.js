@@ -41,7 +41,7 @@ function genBoard() {
   str += "player:\tA B\n";
   str += "sets:\t"+this.sA+" "+this.sB+"\n";
   str += "games:\t"+this.gA+" "+this.gB+"\n";
-  str += "points:\t"+this.pA+" "+this.pB+"\n";
+  str += "points:\t"+pointsToScore(this.pA)+" "+pointsToScore(this.pB)+"\n";
   str += state(this.pA,this.pB).state+"\n";
   return str;
 }
