@@ -1,10 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+
+    <style>
+      button {
+        width: 10%;
+        height: auto;
+      }
+    </style>
+
+    <!-- Scripts -->
+    <script src="tennisMatch.js"></script>
+    <script>
+      let tennisMatch = new TennisMatch();
+      function displayBoard() {
+        document.getElementById("tennisBoard").innerHTML =
+          tennisMatch.genBoard().replace(/\n/g,"<br />\n");
+      }
+      function clickA() {
+        tennisMatch.next('A');
+        displayBoard();
+      }
+      function clickB() {
+        tennisMatch.next('B');
+        displayBoard();
+      }
+      function reset() {
+        tennisMatch = new TennisMatch();
+        displayBoard();
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <button onclick="clickA()">A</button>
+      <button onclick="clickB()">B</button>
+      <button onclick="reset()">Reset</button>
+    </div>
+    <div id="tennisBoard"></div>
+  </body>
 </html>
