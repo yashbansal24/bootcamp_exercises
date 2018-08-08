@@ -55,7 +55,7 @@ function computeSetState(a,b,prevState) {
   if(tie)
     return { state: "TIE", player: '' };
 
-  let win = diffFloorUtil(a,b,2,6);
+  let win = minDiffFloorUtil(a,b,2,6);
   if(win)
     return { state: "WIN", player: numToPlayer(win) };
 
