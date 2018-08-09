@@ -24,11 +24,22 @@ function nextNthValue(n) {
   }
   return this.currentValue;
 }
-function prevValue() {
-    
+unction prevValue()
+{
+  let read= this.prevNthValue(1);
+
+  this.currentValue=read;
+  return read;
 }
-function prevNthValue() {
-    
+
+function prevNthValue(n)
+{
+  let read;
+  let size=this.odometerValues.length;
+  let index=this.odometerValues.indexOf(this.curr);
+  read=this.odometerValues[(index-n+size)%size];
+    this.currentValue=read;
+    return read;
 }
 function diff() {
     
