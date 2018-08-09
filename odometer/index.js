@@ -63,24 +63,5 @@ class Odometer {
     initOdometer();
   }
 }
-function prevValue()
-{
-  let read= this.prevNthValue(1);
 
-  this.currentValue=read;
-  return read;
-}
-
-function prevNthValue(n)
-{
-  let read;
-  let size=this.odometerValues.length;
-  let index=this.odometerValues.indexOf(this.curr);
-    if(index-(n-1)>=0)
-      read= this.odometerValues[index-N];
-    else
-      read= this.odometerValues[(size-index-n)];
-    this.currentValue=read;
-    return read;
-}
 console.log(genOdometerValues(3).toString());
