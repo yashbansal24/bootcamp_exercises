@@ -11,6 +11,28 @@ function genOdometerValues(n) {
   }
   return res;
 }
+function nextValue() {
+  let position = this.odometerValues.indexOf(this.currentValue);
+  console.log(position);
+  this.currentValue = this.odometerValues[(position+1)% this.odometerValues.length];
+  return this.currentValue;
+}
+
+function nextNthValue(n) {
+  while (n--){
+    this.nextValue();
+  }
+  return this.currentValue;
+}
+function prevValue() {
+    
+}
+function prevNthValue() {
+    
+}
+function diff() {
+    
+}
 
 function initOdometer() {
   if(this.odometerValues.length > 0)
@@ -21,7 +43,6 @@ class Odometer {
   constructor(n) {
     this.odometerValues = genOdometerValues(n);
     this.currentValue = 0;
-
     this.nextValue = nextValue;
     this.prevValue = prevValue;
     this.nextNthValue = nextNthValue;
