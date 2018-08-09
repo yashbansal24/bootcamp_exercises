@@ -6,4 +6,4 @@ odometer.init();
 console.log(odometer.read());
 console.log(odometer.prevNthValue(85));
 console.log(odometer.nextNthValue(6));
-console.log(odometer.diff(2));
+console.log(odometer.diff(123));

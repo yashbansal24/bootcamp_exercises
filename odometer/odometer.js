@@ -18,11 +18,7 @@ function prevValue() {
 }
 
 function prevNthValue(n) {
-  n = n%this.odometerValues.length;
-  let position = this.odometerValues.indexOf(this.currentValue);
-  this.currentValue = this.odometerValues[
-    (position+this.odometerValues.length-n)%this.odometerValues.length];
-  return this.currentValue;
+  return this.nextNthValue(-n);
 }
 
 function nextValue() {
@@ -31,24 +27,27 @@ function nextValue() {
 
 function nextNthValue(n) {
   n = n%this.odometerValues.length;
-  let position = this.odometerValues.indexOf(this.currentValue);
-  this.currentValue = this.odometerValues[(position+n)% this.odometerValues.length];
+  this.currentIndex = (this.currentIndex+this.odometerValues.length+n)% this.odometerValues.length;
+  this.currentValue = this.odometerValues[this.currentIndex];
   return this.currentValue;
 }
 
 function diff(newOdometerValue) {
-  if(this.odometerValues.indexOf(newOdometerValue) === -1)
+  let newIndex = this.odometerValues.indexOf(newOdometerValue);
+  if(newIndex === -1)
     return false;
 
-  if(this.odometerValues.indexOf(this.currentValue) < this.odometerValues.indexOf(newOdometerValue))
-    return Math.abs(this.odometerValues.indexOf(newOdometerValue) - this.odometerValues.indexOf(this.currentValue));
+  if(this.currentIndex < newIndex)
+    return Math.abs(newIndex - this.currentIndex);
   else
-    return this.odometerValues.indexOf(newOdometerValue) + this.odometerValues.length - this.odometerValues.indexOf(this.currentValue);
+    return newIndex + this.odometerValues.length - this.currentIndex;
 }
 
 function initOdometer() {
-  if(this.odometerValues.length > 0)
+  if(this.odometerValues.length > 0) {
     this.currentValue = this.odometerValues[0];
+    this.currentIndex = 0;
+  }
 }
 
 function readOdometer() {
@@ -59,6 +58,7 @@ class Odometer {
   constructor(n) {
     this.odometerValues = genOdometerValues(n);
     this.currentValue = "";
+    this.currentIndex = 0;
 
     this.read = readOdometer;
     this.init = initOdometer;
