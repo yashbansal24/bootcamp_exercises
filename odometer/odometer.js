@@ -18,6 +18,7 @@ function prevValue() {
 }
 
 function prevNthValue(n) {
+  n = n%this.odometerValues.length;
   let position = this.odometerValues.indexOf(this.currentValue);
   this.currentValue = this.odometerValues[
     (position+this.odometerValues.length-n)%this.odometerValues.length];
@@ -29,6 +30,7 @@ function nextValue() {
 }
 
 function nextNthValue(n) {
+  n = n%this.odometerValues.length;
   let position = this.odometerValues.indexOf(this.currentValue);
   this.currentValue = this.odometerValues[(position+n)% this.odometerValues.length];
   return this.currentValue;
