@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function genOdometerValues(n) {
   if(n <= 0 || n > 9)
     return [];
@@ -44,12 +45,14 @@ function prevNthValue(n)
 function diff() {
     
 }
+=======
+const Odometer = require('./odometer');
+>>>>>>> odometer: moved logic to Odometer class
 
-function initOdometer() {
-  if(this.odometerValues.length > 0)
-    this.currentValue = this.odometerValues[0];
-}
+let odometer = new Odometer(6);
+odometer.init();
 
+<<<<<<< HEAD
 class Odometer {
   constructor(n) {
     this.odometerValues = genOdometerValues(n);
@@ -65,3 +68,6 @@ class Odometer {
 }
 
 console.log(genOdometerValues(3).toString());
+=======
+console.log(odometer.read());
+>>>>>>> odometer: moved logic to Odometer class
