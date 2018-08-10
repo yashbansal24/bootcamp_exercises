@@ -11,12 +11,14 @@ function areJoinable(a,b) {
 }
 
 function maintain() {
-  this.currentTable.sort(compare);
-  len = this.currentTable.length;
-  for(let i=0;i<len-1;++i) {
+  let len = this.currentTable.length-1;
+  for(let i=0;i < len ;i++) {
     if(areJoinable(this.currentTable[i],this.currentTable[i+1])) {
       this.currentTable[i].B = this.currentTable[i+1].B;
       this.currentTable = this.currentTable.splice(i+1,1);
+      len--;
+    } else {
+      i++;
     }
   }
 }
