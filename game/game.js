@@ -9,6 +9,7 @@ function nextTurnUtil(player,opp,limit,winnerName) {
     return winnerName;
   }
   player.processInfo(guessWord,response);
+  return "";
 }
 
 function nextTurn() {
@@ -16,10 +17,10 @@ function nextTurn() {
     return;
 
   if(this.turnCount%2) {
-    nextTurnUtil(this.human,this.bot,this.limit,"YOU");
+    this.winner = nextTurnUtil(this.human,this.bot,this.limit,"YOU");
   } else {
     console.log("Computer's Turn: "+this.bot.nextGuess());
-    nextTurnUtil(this.bot,this.human,this.limit,"COMPUTER");
+    this.winner = nextTurnUtil(this.bot,this.human,this.limit,"COMPUTER");
   }
   this.turnCount++;
 }
@@ -52,7 +53,7 @@ class Game {
 
     this.winner = "";
     this.turnCount = 1;
-    
+
     this.nextTurn = nextTurn;
     this.start = startGame;
     this.init = initGame;
